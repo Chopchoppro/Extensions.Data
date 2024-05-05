@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChopChop.Extensions.Data.Model;
+namespace ChopChop.Extensions.Data.Model.Request;
 
 public enum SortDirection
 {

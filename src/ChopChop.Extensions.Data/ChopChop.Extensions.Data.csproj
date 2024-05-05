@@ -11,8 +11,14 @@
 		<Company>ChopChopPro</Company>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>1591</NoWarn>
-		<Version>8.0.1</Version>
-		<PackageVersion>8.0.1</PackageVersion>
+		<Version>8.0.3</Version>
+		<PackageVersion>8.0.3</PackageVersion>
+		<Title>Extensions Data</Title>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageProjectUrl>https://github.com/Chopchoppro/Extensions.Data</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AWSSDK.SQS" Version="3.7.300.62" />
@@ -25,7 +31,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\Request\" />
+    <None Update="icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
