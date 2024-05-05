@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChopChop.Extensions.Data.Model.Entity
+namespace ChopChop.Extensions.Data.Model.Entity;
+
+public class BaseStatusEntity : BaseLog
 {
-    internal class BaseStatusEntity
-    {
-    }
+    public Guid Id { get; set; } 
+    public Status Status { get; set; }
+    public int Version { get; set; }
 }

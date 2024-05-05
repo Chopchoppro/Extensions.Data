@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ChopChop.Extensions.Data.Model.Response;
 
-namespace ChopChop.Extensions.Data.Model.Response
+public class BaseTitleLocalizationResponse : BaseLocalizationResponse<BaseTitleLocalization>
 {
-    internal class BaseTitleLocalizationResponse
-    {
-    }
 }

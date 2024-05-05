@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ChopChop.Extensions.Data.Model.Response;
 
-using ChopChop.Extensions.Data.Model.Entity;
-
-namespace ChopChop.Extensions.Data.Model.Response;
-
-public class BaseTitleLocalizationResponse: BaseLocalizationResponse
+public class BaseTitleLocalization: BaseLocalization
 {
+    public string Title { get; set; }
 }

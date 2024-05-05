@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ChopChop.Extensions.Data.Model.Response;
 
-namespace ChopChop.Extensions.Data.Model.Response
+public abstract class BaseLocalization
 {
-    internal class BaseLocaliztionResponse
-    {
-    }
+    public Guid Id { get; set; }
+    public string Culture { get; set; }
 }

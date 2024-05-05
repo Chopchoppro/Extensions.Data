@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChopChop.Extensions.Data.Model
+namespace ChopChop.Extensions.Data.Model.Entity
 {
     public abstract class BaseLog
     {
