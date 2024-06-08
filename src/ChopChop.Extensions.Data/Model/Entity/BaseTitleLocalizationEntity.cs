@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChopChop.Extensions.Data.Model.Entity;
 
-public class BaseTitleLocalizationEntity:BaseLocalizationResponse
+public class BaseTitleLocalizationEntity: BaseLocalizationEntity
 {
     public string Title { get; set; }
 }

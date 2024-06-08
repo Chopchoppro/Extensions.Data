@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ChopChop.Extensions.Data.Model.Entity;
 
-public abstract class BaseLocalizationResponse : BaseStatusEntity
+public abstract class BaseLocalizationEntity : BaseStatusEntity
 {
     public Guid LocaliztionId { get; set; }
 
