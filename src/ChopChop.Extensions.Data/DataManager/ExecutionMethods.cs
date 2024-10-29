@@ -233,4 +233,34 @@ public abstract class ExecutionMethods
         var body = Expression.PropertyOrField(parameter, propertyName);
         return Expression.Lambda<Func<T, Y>>(body, parameter);
     }
+
+    internal protected async Task<T> ExecuteScalarAsync<T>(IDbConnection db,
+      string query,
+      object model,
+      CancellationToken cancellationToken = default)
+    {
+        if (db == null)
+        {
+            return await _outboxTransactionManager.RunAsync<T>(async db =>
+            {
+                return await db.ExecuteScalarAsync<T>(
+                    new CommandDefinition(
+                        query,
+                        model,
+                        cancellationToken: cancellationToken
+                    )
+                );
+            }, cancellationToken);
+        }
+        else
+        {
+            return await db.ExecuteScalarAsync<T>(
+                    new CommandDefinition(
+                        query,
+                        model,
+                        cancellationToken: cancellationToken
+                    )
+                );
+        }
+    }
 }
