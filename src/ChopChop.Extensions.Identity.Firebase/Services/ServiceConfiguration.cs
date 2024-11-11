@@ -1,4 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using ChopChop.Extensions.Identity.Firebase.Services.Infostruct;
+
+using FirebaseAdmin;
+
+using Google.Apis.Auth.OAuth2;
+
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder.Extensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,11 +15,20 @@ namespace ChopChop.Extensions.Identity.Firebase.Services;
 
 public static class ServiceConfiguration
 {
-    public static IServiceCollection RegisterFirebaseAuth(this IServiceCollection services, IConfiguration Configuration)
+    public static IServiceCollection RegisterFirebaseAuth(this IServiceCollection services, IConfiguration Configuration, bool isCreateFirebaseApp = false)
     {
-
         var firebaseOptions = Configuration.GetSection("FirebaseOptions")
-           .Get<FirebaseOptions>();
+       .Get<FirebaseOptions>();
+
+        if (isCreateFirebaseApp)
+            FirebaseApp.Create(new AppOptions()
+            {
+                Credential = GoogleCredential.FromJson(firebaseOptions.ToJson())
+            });
+
+        services.AddTransient<IFirebaseServices, FirebaseServices>(c => new FirebaseServices(new HttpClient() { BaseAddress = new Uri(firebaseOptions.Url) }, firebaseOptions.ApiKey));
+
+
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
          .AddJwtBearer(options =>
          {

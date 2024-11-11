@@ -22,7 +22,7 @@ public class FirebaseServices : IFirebaseServices
         this.HttpClient = httpClient;
         this.apiKey = apiKey;
     }
-
+ 
     public async Task<LoginModel> Login(string username, string password, CancellationToken cancellationToken)
     {
         var uri = $"accounts:signInWithPassword?key={apiKey}";
@@ -34,24 +34,7 @@ public class FirebaseServices : IFirebaseServices
         var json = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<LoginModel>(json);
     }
- 
-
-    public Task<bool> ResetPassword(string email, string password, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<bool> SendVerifyEmail(string lang, string code)
-    {
-        var uri = $"__/auth/action?mode=verifyEmail&oobCode={code}&apiKey={apiKey}&lang={lang}";
-        var req = new HttpRequestMessage(HttpMethod.Get, uri);
-        using var response = await HttpClient.SendAsync(req);
-        if (!response.IsSuccessStatusCode)
-            return false;
-        var json = await response.Content.ReadAsStringAsync();
-        return true;
-    }
-
+  
     public async Task<string> SendVerifyEmail(string idToken,  CancellationToken cancellationToken)
     {
         var uri = $"accounts:sendOobCode?key={apiKey}";
@@ -87,4 +70,6 @@ public class FirebaseServices : IFirebaseServices
         var json = await response.Content.ReadAsStringAsync(cancellationToken);
         return JsonConvert.DeserializeObject<VerifyCustomTokenModel>(json);
     }
+
+    
 }

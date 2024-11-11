@@ -12,8 +12,8 @@
 		<Company>ChopChopPro</Company>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>1591</NoWarn>
-		<Version>8.0.1</Version>
-		<PackageVersion>8.0.1</PackageVersion>
+		<Version>8.0.4</Version>
+		<PackageVersion>8.0.4</PackageVersion>
 		<Title>Extensions Identity Firebase</Title>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/Chopchoppro/Extensions.Data</PackageProjectUrl>
@@ -22,12 +22,18 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="FirebaseAdmin" Version="3.1.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.10" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<None Update="icon.png">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 		<None Update="LICENSE.txt">
 			<PackagePath>\</PackagePath>
 			<Pack>True</Pack>
