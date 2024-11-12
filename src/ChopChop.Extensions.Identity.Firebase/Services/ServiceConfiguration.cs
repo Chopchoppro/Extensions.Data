@@ -23,7 +23,7 @@ public static class ServiceConfiguration
         if (isCreateFirebaseApp)
             FirebaseApp.Create(new AppOptions()
             {
-                Credential = GoogleCredential.FromJson(firebaseOptions.ToJson())
+                Credential = GoogleCredential.FromFile("./firebase-config.json")
             });
 
         services.AddTransient<IFirebaseServices, FirebaseServices>(c => new FirebaseServices(new HttpClient() { BaseAddress = new Uri(firebaseOptions.Url) }, firebaseOptions.ApiKey));
