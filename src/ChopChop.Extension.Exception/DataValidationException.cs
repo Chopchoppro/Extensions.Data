@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChopChop.Extension.Exception
+namespace ChopChop.Extension.Exception;
+
+public class DataValidationException : AppException
 {
-    internal class DataValidationException
+    public DataValidationException(string message, int statusCode = 400, object[]? @params = null)
+        : base("Validation", message, statusCode, @params)
     {
     }
 }

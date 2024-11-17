@@ -4,39 +4,19 @@ using System.Net.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Diagnostics;
+using System.Threading.Tasks;   
 
 
 
 namespace ChopChop.Extension.Exception;
 
 
-public static class ExceptionHandlerMiddleware
+public static class ExceptionHandler
 {
-    public static async Task ExceptionHandler(
-        HttpContext context
-    )
-    {
-        var exceptionHandlerFeature = context.Features.Get<IExceptionHandlerPathFeature>();
-
-        var exception = exceptionHandlerFeature!.Error;
-
-        var response = GetErrorFromException(exception);
-
-        // TODO: use a unified serializer.
-        var jsonPayload = System.Text.Json.JsonSerializer.Serialize(response);
-
-        context.Response.StatusCode = response.StatusCode;
-        context.Response.ContentType = "application/json";
-        await context.Response.WriteAsync(jsonPayload);
-
-        await context.Response.CompleteAsync();
-    }
+    
 
     public static ErrorResponse GetErrorFromException(
-        System.Exception exception
+     this   System.Exception exception
     )
     {
         var result = new ErrorResponse();

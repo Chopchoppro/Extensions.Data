@@ -4,9 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChopChop.Extension.Exception
+namespace ChopChop.Extension.Exception;
+
+public class ConcurrencyException : AppException
 {
-    internal class ConcurrencyException
+    public ConcurrencyException()
+        : this("Concurrency")
+    {
+    }
+
+    public ConcurrencyException(string messageId, int statusCode = 409, object[]? @params = null)
+        : base(messageId, "Concurrency", statusCode, @params)
     {
     }
 }

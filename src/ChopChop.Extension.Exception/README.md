@@ -1,2 +1,2 @@
 # Postgres SQl Generator
-That is useful extenstion for run time genrate sql object. 
+That is useful extenstion for manage exception api. 

@@ -4,9 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChopChop.Extension.Exception
+namespace ChopChop.Extension.Exception;
+
+public abstract class AppException : System.Exception
 {
-    internal class AppException
+    public int StatusCode { get; set; }
+
+    public string MessageId { get; }
+
+    public object[]? Params { get; }
+
+    protected AppException(string messageId, string message, int statusCode = 500, object[]? @params = null)
+        : base(message)
     {
+        MessageId = messageId;
+        StatusCode = statusCode;
+        Params = @params;
     }
 }
