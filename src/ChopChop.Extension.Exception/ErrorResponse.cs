@@ -1,5 +1,5 @@
 ﻿
-namespace ChopChop.Extension.Exception;
+namespace ChopChop.Extensions.Exception;
 
 public class ErrorResponse
 {

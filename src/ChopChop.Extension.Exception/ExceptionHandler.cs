@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 
 
-namespace ChopChop.Extension.Exception;
+namespace ChopChop.Extensions.Exception;
 
 
 public static class ExceptionHandler

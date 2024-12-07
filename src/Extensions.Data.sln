@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChopChop.Extensions.Data", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChopChop.Extensions.Identity.Firebase", "ChopChop.Extensions.Identity.Firebase\ChopChop.Extensions.Identity.Firebase.csproj", "{8F9982FF-3BBB-4561-BA3F-AD70F47ACEBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChopChop.Extension.Exception", "ChopChop.Extension.Exception\ChopChop.Extension.Exception.csproj", "{19E9B0B5-6694-4FDB-A689-7A9531632D1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChopChop.Extensions.Exception", "ChopChop.Extension.Exception\ChopChop.Extensions.Exception.csproj", "{19E9B0B5-6694-4FDB-A689-7A9531632D1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

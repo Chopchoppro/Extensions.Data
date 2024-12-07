@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChopChop.Extension.Exception;
+namespace ChopChop.Extensions.Exception;
 
 public abstract class AppException : System.Exception
 {

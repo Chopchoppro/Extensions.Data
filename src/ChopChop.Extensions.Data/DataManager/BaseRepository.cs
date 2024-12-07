@@ -46,8 +46,7 @@ public abstract class BaseRepository : ExecutionMethods
            id,
            localization_id,
            cultur,
-           title,  
-
+           title,   
            status_code,
            created_at, 
            created_by, 
@@ -71,6 +70,42 @@ public abstract class BaseRepository : ExecutionMethods
         entity.CreatedAt = _dateTimeProvider();
         await ExecuteAsync(query, entity, cancellationToken);
         return entity;
+    }
+
+    protected virtual async Task<T> AddLocalization<T>(T entity,string columns,string parameters, string user, CancellationToken cancellationToken)
+        where T : BaseTitleLocalizationEntity
+    {
+        var query = $@"INSERT INTO {LocalizationTableName}
+        (
+           id,
+           localization_id,
+           cultur,
+           {columns}
+           title,   
+           status_code,
+           created_at, 
+           created_by, 
+           version
+        )
+        VALUES
+        (
+            @Id,
+            @LocaliztionId,
+            @Culture,
+            {parameters},
+            @Title,
+            @statusCode,
+            @createdAt,
+            @createdBy,
+            @version
+        ) RETURNING *; ";
+
+        entity.Id = GenerateNewId();
+        entity.Version = GenerateNewVersion();
+        entity.CreatedBy = user;
+        entity.CreatedAt = _dateTimeProvider();
+        await ExecuteAsync(query, entity, cancellationToken);
+        return (T)entity;
     }
 
     protected virtual async Task DeleteLocalizationsAsync(IDbConnection db, IEnumerable<Guid> ids, string user, CancellationToken cancellationToken)
@@ -126,6 +161,20 @@ public abstract class BaseRepository : ExecutionMethods
         {
             Id = id,
             Culture = culture
+        }, cancellationToken);
+    }
+    protected virtual async Task<IEnumerable<T>> GetLocalizationEntitiesAsync<T>(Guid id, string[] cultures, CancellationToken cancellationToken) where T : class
+    {
+        var query = @$"
+             Select * from {LocalizationTableName}
+                 where ""localization_id"" =@Id
+         ";
+        if (cultures.Any())
+            query += @" And ""culture"" = Any(@Cultures)";
+        return await ExecuteAndGetListAsync<T>(query, new
+        {
+            Id = id,
+            Cultures = cultures
         }, cancellationToken);
     }
 
