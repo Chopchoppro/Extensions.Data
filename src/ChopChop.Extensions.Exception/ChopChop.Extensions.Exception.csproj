@@ -6,13 +6,13 @@
   </PropertyGroup>
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
-		<PackageId>ChopChop.Extension.Exception</PackageId>
+		<PackageId>ChopChop.Extensions.Exception</PackageId>
 		<Authors>Development Department</Authors>
 		<Company>ChopChopPro</Company>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>1591</NoWarn>
-		<Version>8.0.2</Version>
-		<PackageVersion>8.0.2</PackageVersion>
+		<Version>8.0.3</Version>
+		<PackageVersion>8.0.3</PackageVersion>
 		<Title>Extensions Exception Manager</Title>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/Chopchoppro/Extensions.Data</PackageProjectUrl>

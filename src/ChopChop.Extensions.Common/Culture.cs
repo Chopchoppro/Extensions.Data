@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
-namespace ChopChop.Extensions.Common
+namespace ChopChop.Extensions.Common;
+
+public struct Culture
 {
-    internal class Culture
+    public static readonly Culture English = new Culture
     {
-    }
+        CurrentCulture = "en-US",
+        DefaultCulture = "en-US"
+    };
+
+    public string CurrentCulture { get; set; }
+
+    public string DefaultCulture { get; set; }
+
+    public string[] OtherCultures { get; set; }
+
+    
+    
 }
