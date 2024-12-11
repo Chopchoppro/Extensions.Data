@@ -16,6 +16,8 @@ public struct Culture
 
     public string[] OtherCultures { get; set; }
 
-    
-    
+    public string CurrentLanguage { get { return CurrentCulture.GetLanguageCulture(); } }
+    public string CurrentCountry { get { return CurrentCulture.GetCountryCulture(); } }
+
+
 }

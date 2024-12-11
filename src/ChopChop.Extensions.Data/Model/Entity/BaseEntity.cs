@@ -9,7 +9,7 @@ namespace ChopChop.Extensions.Data.Model.Entity;
 
 public abstract class BaseEntity : BaseStatusEntity
 {
-    public Guid AppId { get; set; }
+    public string AppId { get; set; }
     public string UserName { get; set; } 
 }
 

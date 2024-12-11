@@ -252,12 +252,12 @@ public static class StringExtension
         return culture.Split('-')[0];
     }
 
-    public static string GetCurrencyCulture(this string culture)
+    public static string GetCountryCulture(this string culture)
     {
         ArgumentNullException.ThrowIfNull(culture, nameof(culture));
 
         if (!culture.Split('-').Any())
             throw new ArgumentException("The culture not valid");
-        return culture.Split('-')[0];
+        return culture.Split('-')[1];
     }
 }

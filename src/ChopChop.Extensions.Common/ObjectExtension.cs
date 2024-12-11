@@ -239,4 +239,11 @@ public static class ObjectExtension
         long tmStamp = ((nowTicks - epochTicks) / TimeSpan.TicksPerSecond);
         return tmStamp;
     }
+
+    public static T ToEnum<T>(this string enumString) where T : Enum
+    {
+        if (Enum.IsDefined(typeof(T), enumString))
+            return (T)Enum.Parse(typeof(T), enumString);
+        throw new ArgumentException();
+    }
 }

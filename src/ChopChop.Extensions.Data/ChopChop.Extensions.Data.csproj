@@ -11,8 +11,8 @@
 		<Company>ChopChopPro</Company>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>1591</NoWarn>
-		<Version>8.0.8</Version>
-		<PackageVersion>8.0.8</PackageVersion>
+		<Version>8.0.9</Version>
+		<PackageVersion>8.0.9</PackageVersion>
 		<Title>Extensions Data</Title>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/Chopchoppro/Extensions.Data</PackageProjectUrl>

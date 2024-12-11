@@ -11,8 +11,8 @@
 		<Company>ChopChopPro</Company>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>1591</NoWarn>
-		<Version>8.0.3</Version>
-		<PackageVersion>8.0.3</PackageVersion>
+		<Version>8.0.6</Version>
+		<PackageVersion>8.0.6</PackageVersion>
 		<Title>Extensions Exception Manager</Title>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageProjectUrl>https://github.com/Chopchoppro/Extensions.Data</PackageProjectUrl>

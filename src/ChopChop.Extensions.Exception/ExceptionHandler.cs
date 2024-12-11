@@ -53,6 +53,13 @@ public static class ExceptionHandler
                 };
                 result.StatusCode = 500;
                 break;
+            case ArgumentException argument:
+                result.MessageId = argument.MessageId;
+                result.Message = argument.Message;
+                result.Params = argument.Data.OfType<KeyValuePair<string, object>>()
+                    .ToDictionary(k => k.Key.ToString(), v => v.Value);
+                result.StatusCode = 403;
+                break;
             case ConcurrencyException concurrency:
                 result.MessageId = concurrency.MessageId;
                 result.Message = concurrency.Message;
@@ -75,7 +82,7 @@ public static class ExceptionHandler
                 break;
             case ArgumentNullException _:
             case ArgumentOutOfRangeException _:
-            case ArgumentException _:
+            case System.ArgumentException _:
                 result.MessageId = "ValidationException";
                 result.Message = exception.Message;
                 result.StatusCode = 400;
